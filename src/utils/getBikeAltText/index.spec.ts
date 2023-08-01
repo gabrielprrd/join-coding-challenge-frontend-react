@@ -17,7 +17,6 @@ describe("getBikeAltText", () => {
       frameMode: undefined,
       expected: "Bike",
     },
-    // Test cases with undefined image
     {
       image: undefined,
       frameMode: "Frame1",
@@ -31,7 +30,7 @@ describe("getBikeAltText", () => {
   ];
 
   testData.forEach(({ image, frameMode, expected }) => {
-    it(`should return "${expected}" when image is "${image}" and frameMode is "${frameMode}"`, () => {
+    it(`returns "${expected}" when image is "${image}" and frameMode is "${frameMode}"`, () => {
       const result = getBikeAltText(image, frameMode);
       expect(result).toBe(expected);
     });

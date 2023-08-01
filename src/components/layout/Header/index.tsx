@@ -14,7 +14,7 @@ export default function Header() {
         <Link className="no-underline text-2xl" href="/">
           Police Department of Berlin
         </Link>
-        <p className="">Stolen bikes</p>
+        <p>Stolen bikes</p>
       </div>
     </header>
   );

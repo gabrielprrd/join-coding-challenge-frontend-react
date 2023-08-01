@@ -1,13 +1,13 @@
+import BikesTable from "@/components/BikesTable";
 import DefaultLayout from "@/components/layout/DefaultLayout";
-import type { ReactElement } from "react";
-import type { NextPageWithLayout } from "./_app";
+import { ReactElement } from "react";
 
-const Home: NextPageWithLayout = () => {
-  return <></>;
+const HomePage = () => {
+  return <BikesTable />;
 };
 
-Home.getLayout = function getLayout(page: ReactElement) {
+HomePage.getLayout = function getLayout(page: ReactElement) {
   return <DefaultLayout>{page}</DefaultLayout>;
 };
 
-export default Home;
+export default HomePage;

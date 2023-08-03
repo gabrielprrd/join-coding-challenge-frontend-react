@@ -11,7 +11,7 @@ type Props = {
 const isActive = (num: number, current: number) => current === num;
 
 const handleActiveButtonStyle = (num: number, current: number) =>
-  isActive(num, current) ? "bg-blue-600 text-white" : "";
+  isActive(num, current) ? "bg-blue-700 text-white" : "";
 
 export default function Pagination({
   pages,

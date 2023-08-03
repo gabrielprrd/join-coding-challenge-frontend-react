@@ -1,3 +1,4 @@
+import Head from "@/components/Head";
 import { ReactElement } from "react";
 import Header from "../Header";
 
@@ -7,9 +8,12 @@ type Props = {
 
 export default function DefaultLayout({ children }: Props) {
   return (
-    <div className="min-h-screen max-w-screen flex flex-col">
-      <Header />
-      <main className="p-5">{children}</main>
-    </div>
+    <>
+      <Head />
+      <div className="min-h-screen max-w-screen flex flex-col">
+        <Header />
+        <main className="p-5 h-full w-full">{children}</main>
+      </div>
+    </>
   );
 }

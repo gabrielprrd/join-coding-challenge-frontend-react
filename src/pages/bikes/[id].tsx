@@ -5,6 +5,7 @@ import { getBikeAltText } from "@/utils/getBikeAltText";
 import Image from "next/image";
 import { ReactElement } from "react";
 import DefaultLayout from "@/components/layout/DefaultLayout";
+import Center from "@/components/Center";
 
 type Bike = {
   id: number;
@@ -44,6 +45,9 @@ export const getStaticProps = async ({ params }: Params) => {
 };
 
 const BikePage = ({ bike }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  if (!bike)
+    return <Center>"An error ocurrer while fetching bike info."</Center>;
+
   return (
     <div className="flex flex-col gap-2">
       <p className="uppercase text-red-700 font-bold text-2xl">Stolen</p>

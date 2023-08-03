@@ -83,34 +83,34 @@ export default function BikesTable() {
 
       {/* Bikes list */}
       {isLoadingBikes && (
-        <div className="w-full h-full flex justify-center">
+        <Center>
           <h1>Loading...</h1>
-        </div>
+        </Center>
       )}
 
       {isErrorBikes && (
-        <div className="w-full h-full flex justify-center">
+        <Center>
           <h1>An error ocurred while getting the bikes list.</h1>
-        </div>
+        </Center>
       )}
 
       {bikes?.length === 0 && (
-        <div className="w-full h-full flex justify-center">
+        <Center>
           <h1>No results.</h1>
-        </div>
+        </Center>
       )}
 
       {bikes?.length > 0 && <BikesList bikes={bikes} />}
 
       {isFetchingBikes ||
         (isLoadingBikes && (
-          <div className="w-full h-full flex justify-center">
+          <Center>
             <h1>Loading...</h1>
-          </div>
+          </Center>
         ))}
 
       {bikes?.length > 0 && !(isFetchingBikes || isLoadingBikes) && (
-        <div className="w-full h-full flex justify-center">
+        <Center>
           <Pagination
             pages={Math.floor(count / bikes.length)}
             current={page}
@@ -118,7 +118,7 @@ export default function BikesTable() {
             handleBackClick={handleBackClick}
             handleNextClick={handleNextClick}
           />
-        </div>
+        </Center>
       )}
     </div>
   );

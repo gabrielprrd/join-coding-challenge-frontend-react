@@ -1,18 +1,16 @@
 import BikesList from "@/components/BikesList";
+import usePagination from "@/hooks/usePagination";
 import { BikesService } from "@/services/BikesService";
-import { SyntheticEvent, useState } from "react";
 import { useQuery } from "react-query";
-import Pagination from "../Pagination";
-
-type SearchInputElement = {
-  search: {
-    value: string;
-  };
-} & HTMLInputElement;
+import Center from "@/components/Center";
+import Pagination from "@/components/Pagination";
+import SearchBikesForm from "../SearchBikesForm";
+import useSearch from "@/hooks/useSearch";
 
 export default function BikesTable() {
-  const [searchInput, setSearchInput] = useState("");
-  const [page, setPage] = useState(1);
+  const { page, handleNumClick, handleBackClick, handleNextClick } =
+    usePagination();
+  const { searchInput } = useSearch();
 
   const {
     data: bikes,
@@ -34,27 +32,6 @@ export default function BikesTable() {
     queryFn: () => BikesService.count(searchInput),
   });
 
-  function handleSubmit(event: SyntheticEvent) {
-    event.preventDefault();
-
-    const target = event.target as SearchInputElement;
-    setSearchInput(target.search.value);
-  }
-
-  function handleNumClick(e: SyntheticEvent) {
-    const target = e.target as HTMLButtonElement;
-    setPage(+target.innerText);
-  }
-
-  function handleBackClick() {
-    setPage(page - 1);
-  }
-
-  function handleNextClick() {
-    setPage(page + 1);
-  }
-
-  // TODO: Reduce component's size
   return (
     <div className="h-full w-full flex flex-col gap-5">
       <SearchBikesForm />

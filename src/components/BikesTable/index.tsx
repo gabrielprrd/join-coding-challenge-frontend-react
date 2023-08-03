@@ -57,23 +57,7 @@ export default function BikesTable() {
   // TODO: Reduce component's size
   return (
     <div className="h-full w-full flex flex-col gap-5">
-      <form
-        onSubmit={handleSubmit}
-        className="flex flex-col sm:flex-row gap-2 w-full items-center"
-      >
-        <input
-          name="search"
-          id="search"
-          placeholder="Search case descriptions"
-          className="border-2 border-gray-200 p-2 rounded-sm w-full"
-        />
-        <button
-          type="submit"
-          className="bg-blue-600 text-white p-2 rounded-sm shadow-sm"
-        >
-          Search
-        </button>
-      </form>
+      <SearchBikesForm />
 
       {/* Count */}
       <div className="flex justify-end">
